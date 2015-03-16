@@ -1,28 +1,17 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Rails DBC Overflow
 
-Things you may want to cover:
+- Creating a mock Stack Overflow site for Rails Experience
 
-* Ruby version
+* Rails version 4.2
 
-* System dependencies
+* Postgressql Database
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
+* Rspec Test Suite
 
 * Deployment instructions
 
-* ...
-
-
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
+
