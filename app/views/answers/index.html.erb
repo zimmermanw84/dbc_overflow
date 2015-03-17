@@ -1,7 +1,12 @@
 <h1><%= @question.title %></h1>
 
+<h2><%= @question.content %></h2>
+
+
 <%= link_to 'Back', questions_path %>
 
+<ol>
 <%= content_tag_for(:li, @answers) do |answer| %>
 <h2><%= answer.title %> | <%= answer.content %></h2>
 <% end %>
+</ol>
