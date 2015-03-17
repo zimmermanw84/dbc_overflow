@@ -5,6 +5,10 @@ Rails.application.routes.draw do
   resources :questions do
     resources :answers
   end
+
+  get 'questions/:id/upvote' => 'questions#upvote', as: 'upvote'
+
+  get 'questions/:id/downvote' => 'questions#downvote', as: 'downvote'
   # You can have the root of your site routed with "root"
 
   # Example of regular route:

@@ -28,7 +28,18 @@ class QuestionsController < ApplicationController
     @question = Question.find(params[:id])
 
     @question.update(question_params) ? (redirect_to questions_path) : (render 'edit')
+  end
 
+  def upvote
+    @question = Question.find(params[:id])
+    @question.increment!(:vote_total)
+    redirect_to questions_path
+  end
+
+  def downvote
+    @question = Question.find(params[:id])
+    @question.decrement!(:vote_total)
+    redirect_to questions_path
   end
 
   def destroy
