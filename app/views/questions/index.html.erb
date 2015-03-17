@@ -1,0 +1,5 @@
+<h1>Questions!</h1>
+
+<%= content_tag_for(:li, @questions) do |question| %>
+<h2><%= question.title %> | <%= question.content %> | <%= link_to question.id, question_path(question) %></h2>
+<% end %>
