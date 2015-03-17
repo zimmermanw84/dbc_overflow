@@ -1,4 +1,5 @@
 class AnswersController < ApplicationController
+
   def index
     @question = Question.find(params[:question_id])
 
@@ -12,7 +13,9 @@ class AnswersController < ApplicationController
   end
 
   def new
+    @question = Question.find(params[:question_id])
 
+    @answer = @question.answers.new
   end
 
   def edit
@@ -20,7 +23,10 @@ class AnswersController < ApplicationController
   end
 
   def create
+    @question = Question.find(params[:question_id])
+    @answer = @question.answers.new(answer_params)
 
+    @answer.save ? (redirect_to question_answers_path) : (render 'new')
   end
 
   def update
@@ -30,4 +36,10 @@ class AnswersController < ApplicationController
   def delete
 
   end
+
+  private
+  def answer_params
+    params.require(:answer).permit(:title, :content)
+  end
+
 end
