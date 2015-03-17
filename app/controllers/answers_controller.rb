@@ -40,8 +40,22 @@ class AnswersController < ApplicationController
     @answer.save ? (redirect_to question_answers_path) : (render 'new')
   end
 
-  def delete
+  def upvote
+    @question = Question.find(params[:question_id])
+    @answer = @question.answers.find(params[:id])
+    @answer.increment!(:vote_total)
+    redirect_to question_answers_path
+  end
 
+  def downvote
+    @question = Question.find(params[:question_id])
+    @answer = @question.answers.find(params[:id])
+    @answer.decrement!(:vote_total)
+    redirect_to question_answers_path
+  end
+
+  def delete
+    # No delete feature yet
   end
 
   private
