@@ -3,5 +3,5 @@
 <%= link_to 'New Question', new_question_path %>
 
 <%= content_tag_for(:li, @questions) do |question| %>
-<h2><%= question.title %> | <%= question.content %> | <%= link_to question.id, question_answers_path(question) %></h2>
+<h2><%= link_to question.id, question_answers_path(question) %> | <%= question.title %> | <%= question.content %></h2>
 <% end %>
