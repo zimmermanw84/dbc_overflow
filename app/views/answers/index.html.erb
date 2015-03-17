@@ -9,6 +9,9 @@
 
 <ol>
 <%= content_tag_for(:li, @answers) do |answer| %>
-<h2><%= answer.title %> | <%= answer.content %></h2>
+  <h2><%= answer.title %>
+    | <%= answer.content %>
+
+  </h2>
 <% end %>
 </ol>

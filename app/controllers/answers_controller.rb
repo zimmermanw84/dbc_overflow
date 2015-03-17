@@ -34,7 +34,10 @@ class AnswersController < ApplicationController
   end
 
   def update
+    @question = Question.find(params[:question_id])
+    @answer = @question.answers.find(params[:id])
 
+    @answer.save ? (redirect_to question_answers_path) : (render 'new')
   end
 
   def delete
