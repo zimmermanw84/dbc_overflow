@@ -2,6 +2,8 @@ class QuestionsController < ApplicationController
 
   def index
     @questions = Question.all
+
+    @question = Question.new
   end
 
   def show
@@ -25,7 +27,7 @@ class QuestionsController < ApplicationController
   def update
     @question = Question.find(params[:id])
 
-    @question.update(question_params) ? (redirect_to @question) : (render 'edit')
+    @question.update(question_params) ? (redirect_to questions_path) : (render 'edit')
 
   end
 
@@ -33,7 +35,7 @@ class QuestionsController < ApplicationController
     @question = Question.find(params[:id])
     @question.destroy
 
-    redirect_to question_path
+    redirect_to questions_path
   end
 
 

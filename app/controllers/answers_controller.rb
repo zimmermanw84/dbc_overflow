@@ -4,6 +4,8 @@ class AnswersController < ApplicationController
     @question = Question.find(params[:question_id])
 
     @answers = @question.answers
+
+    @answer = @question.answers.new
   end
 
   def show
@@ -19,7 +21,9 @@ class AnswersController < ApplicationController
   end
 
   def edit
+    @question = Question.find(params[:question_id])
 
+    @answer = @question.answers.find(params[:id])
   end
 
   def create
