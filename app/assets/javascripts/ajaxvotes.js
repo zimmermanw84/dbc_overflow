@@ -1,6 +1,6 @@
 $(document).ready(function(){
-  var test = asyncVotes();
-  test.init()
+  var voteModule = asyncVotes();
+  voteModule.init()
 });
 
 (function() {
@@ -10,7 +10,7 @@ $(document).ready(function(){
       type: 'GET',
       url: url,
       success: function(response) {
-        console.log(response);
+        callback(response);
       }
     });
 
@@ -20,21 +20,26 @@ $(document).ready(function(){
   var upvoteEvents = function() {
 
     var routeAddress;
+    var questionId;
     var $eventTrigger = $('.upvote-trigger');
 
-    function renderNewVoteTotal() {
-
+    function renderNewVoteTotal(data) {
+      $('.'+data.id).find('.vote-total').text('Votes: '+data.vote_total);
     };
 
     function voteEventListener() {
       $('span').on('click', $eventTrigger, function(e) {
         routeAddress = $(this).data('url');
         e.preventDefault()
-        ajaxVotesCall(routeAddress);
+        ajaxVotesCall(routeAddress, renderNewVoteTotal);
       })
     };
 
     voteEventListener()
+  };
+
+  var downvoteEvents = function() {
+
   };
 
 

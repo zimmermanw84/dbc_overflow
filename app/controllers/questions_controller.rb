@@ -3,7 +3,6 @@ class QuestionsController < ApplicationController
   def index
     @questions = Question.all
     @question = Question.new
-    # zen = Zen.new
     @quote = Zen.new.quote
   end
 
