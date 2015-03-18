@@ -1,6 +1,6 @@
 $(document).ready(function(){
   var voteModule = asyncVotes();
-  voteModule.init()
+  voteModule.init();
 });
 
 (function() {
@@ -23,33 +23,21 @@ $(document).ready(function(){
     };
 
   var upvoteEvents = function() {
+    $('.question-template').on('click', '.upvote-trigger', function(event) {
+      event.preventDefault();
+      routeAddress = $(this).data('url');
+      ajaxVotesCall(routeAddress, renderNewVoteTotal);
+    })
 
-    $eventTrigger = $('.upvote-trigger');
-
-
-    function voteEventListener() {
-      $eventTrigger.on('click', function(e) {
-        e.preventDefault()
-        routeAddress = $(this).data('url');
-        ajaxVotesCall(routeAddress, renderNewVoteTotal);
-      })
-    };
-
-    voteEventListener()
   };
 
   var downvoteEvents = function() {
 
-    $eventTrigger = $('.downvote-trigger');
-
-    function voteEventListener() {
-      $eventTrigger.on('click', function(e) {
-        e.preventDefault()
-        routeAddress = $(this).data('url');
-        ajaxVotesCall(routeAddress, renderNewVoteTotal);
-      })
-    };
-    voteEventListener();
+    $('.question-template').on('click', '.downvote-trigger', function(event) {
+      event.preventDefault();
+      routeAddress = $(this).data('url');
+      ajaxVotesCall(routeAddress, renderNewVoteTotal);
+    });
   };
 
   var init = function() {

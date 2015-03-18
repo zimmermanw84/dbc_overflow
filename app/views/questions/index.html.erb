@@ -5,15 +5,17 @@
 <h2>Ask Your Question</h2>
 <%= render 'form' %>
 
-<%= content_tag_for(:li, @questions) do |question| %>
 <div class='question-template'>
+<ul>
+<%= content_tag_for(:li, @questions) do |question| %>
 <h2 class='<%= question.id  %>'><%= link_to question.title, question_answers_path(question) %>
-    | <span><%= question.content %></span>
-    | <span class='vote-total'>Votes: <%= question.vote_total %></span>
-    | <button class='upvote-trigger' data-url='<%= upvote_question_path(question) %>'><%= link_to 'Upvote!', upvote_question_path(question) %></button>
-    | <button class='downvote-trigger' data-url='<%= downvote_question_path(question) %>'><%= link_to 'Downvote!', downvote_question_path(question) %></button>
-    | <button><%= link_to 'Edit', edit_question_path(question) %></button>
-    | <button><%= link_to 'Delete', question_path(question), method: :delete, data: { confirm: "Sure about that?" } %></button>
+  | <%= question.content %>
+  | <p class='vote-total'>Votes: <%= question.vote_total %></p>
+  <button class='upvote-trigger' data-url='<%= upvote_question_path(question) %>'><%= link_to 'Upvote!', '' %></button>
+  <button class='downvote-trigger' data-url='<%= downvote_question_path(question) %>'><%= link_to 'Downvote!', '' %></button>
+  <button><%= link_to 'Edit', edit_question_path(question) %></button>
+  <button><%= link_to 'Delete', question_path(question), method: :delete, data: { confirm: "Sure about that?" } %></button>
 </h2>
-</div>
 <% end %>
+</ul>
+</div>
