@@ -40,7 +40,8 @@ class QuestionsController < ApplicationController
   def downvote
     @question = Question.find(params[:id])
     @question.decrement!(:vote_total)
-    redirect_to questions_path
+    # redirect_to questions_path
+    render :json => @question
   end
 
   def destroy

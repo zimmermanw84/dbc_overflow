@@ -5,32 +5,33 @@ $(document).ready(function(){
 
 (function() {
 
+  var routeAddress;
+  var $eventTrigger;
+
   var ajaxVotesCall = function(url, callback) {
     $.ajax({
       type: 'GET',
       url: url,
       success: function(response) {
         callback(response);
+        // console.log(response)
       }
     });
-
   };
 
-
-  var upvoteEvents = function() {
-
-    var routeAddress;
-    var questionId;
-    var $eventTrigger = $('.upvote-trigger');
-
-    function renderNewVoteTotal(data) {
+  var renderNewVoteTotal = function(data) {
       $('.'+data.id).find('.vote-total').text('Votes: '+data.vote_total);
     };
 
+  var upvoteEvents = function() {
+
+    $eventTrigger = $('.upvote-trigger');
+
+
     function voteEventListener() {
-      $('span').on('click', $eventTrigger, function(e) {
-        routeAddress = $(this).data('url');
+      $eventTrigger.on('click', function(e) {
         e.preventDefault()
+        routeAddress = $(this).data('url');
         ajaxVotesCall(routeAddress, renderNewVoteTotal);
       })
     };
@@ -40,12 +41,24 @@ $(document).ready(function(){
 
   var downvoteEvents = function() {
 
+    $eventTrigger = $('.downvote-trigger');
+
+    function voteEventListener() {
+      $eventTrigger.on('click', function(e) {
+        e.preventDefault()
+        routeAddress = $(this).data('url');
+        ajaxVotesCall(routeAddress, renderNewVoteTotal);
+      })
+    };
+
+    voteEventListener();
+
   };
 
 
   var init = function() {
-
-    upvoteEvents()
+    downvoteEvents();
+    upvoteEvents();
   };
 
   window.asyncVotes = function() {
