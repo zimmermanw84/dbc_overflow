@@ -14,7 +14,6 @@ $(document).ready(function(){
       url: url,
       success: function(response) {
         callback(response);
-        // console.log(response)
       }
     });
   };
@@ -50,11 +49,8 @@ $(document).ready(function(){
         ajaxVotesCall(routeAddress, renderNewVoteTotal);
       })
     };
-
     voteEventListener();
-
   };
-
 
   var init = function() {
     downvoteEvents();
@@ -62,7 +58,6 @@ $(document).ready(function(){
   };
 
   window.asyncVotes = function() {
-
      return {
       init: init,
     }
