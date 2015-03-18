@@ -1,12 +1,6 @@
-require 'httparty'
-
 class Zen
   def initialize
-    @request = HTTParty.get("https://api.github.com/zen", zen_header)
-  end
-
-  def zen_header
-    headers: { 'User-Agent' => "https://#{ENV['URL']}"}
+    @request = HTTParty.get("https://api.github.com/zen", headers: { 'User-Agent' => "#{ENV['URL']}"})
   end
 
   def quote
