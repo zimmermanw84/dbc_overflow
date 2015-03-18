@@ -14,7 +14,6 @@ Rails.application.routes.draw do
     resources :answers, concerns: [:votable]
   end
 
-  get 'zen' => 'zen#index'
 
 
   # You can have the root of your site routed with "root"

@@ -6,11 +6,14 @@
 <%= render 'form' %>
 
 <%= content_tag_for(:li, @questions) do |question| %>
+<div class='question-template'>
 <h2><%= link_to question.title, question_answers_path(question) %>
-    | <%= question.content %>
-    | Votes: <%= question.vote_total %>
-    | <%= link_to 'Upvote!', upvote_question_path(question) %>
-    | <%= link_to 'Downvote!', downvote_question_path(question) %>
-    | <%= link_to 'Edit', edit_question_path(question) %>
-    | <%= link_to 'Delete', question_path(question), method: :delete, data: { confirm: "Sure about that?" } %></h2>
+    | <span><%= question.content %></span>
+    | <span>Votes: <%= question.vote_total %></span>
+    | <span class='upvote-trigger' data-url='<%= upvote_question_path(question) %>'><%= link_to 'Upvote!', upvote_question_path(question) %></span>
+    | <span><%= link_to 'Downvote!', downvote_question_path(question) %></span>
+    | <span><%= link_to 'Edit', edit_question_path(question) %></span>
+    | <span><%= link_to 'Delete', question_path(question), method: :delete, data: { confirm: "Sure about that?" } %></span>
+</h2>
+</div>
 <% end %>
