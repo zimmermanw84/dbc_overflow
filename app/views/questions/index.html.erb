@@ -7,9 +7,9 @@
 
 <%= content_tag_for(:li, @questions) do |question| %>
 <div class='question-template'>
-<h2><%= link_to question.title, question_answers_path(question) %>
+<h2 data-question-id='<%= question.id %>'><%= link_to question.title, question_answers_path(question) %>
     | <span><%= question.content %></span>
-    | <span>Votes: <%= question.vote_total %></span>
+    | <span class='vote-total'>Votes: <%= question.vote_total %></span>
     | <span class='upvote-trigger' data-url='<%= upvote_question_path(question) %>'><%= link_to 'Upvote!', upvote_question_path(question) %></span>
     | <span><%= link_to 'Downvote!', downvote_question_path(question) %></span>
     | <span><%= link_to 'Edit', edit_question_path(question) %></span>

@@ -34,7 +34,8 @@ class QuestionsController < ApplicationController
   def upvote
     @question = Question.find(params[:id])
     @question.increment!(:vote_total)
-    redirect_to questions_path
+    # redirect_to questions_path
+    render :json => @question
   end
 
   def downvote

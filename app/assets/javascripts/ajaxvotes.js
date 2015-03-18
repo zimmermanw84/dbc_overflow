@@ -22,8 +22,12 @@ $(document).ready(function(){
     var routeAddress;
     var $eventTrigger = $('.upvote-trigger');
 
+    function renderNewVoteTotal() {
+
+    };
+
     function voteEventListener() {
-      $eventTrigger.on('click', function(e) {
+      $('span').on('click', $eventTrigger, function(e) {
         routeAddress = $(this).data('url');
         e.preventDefault()
         ajaxVotesCall(routeAddress);
