@@ -13,7 +13,7 @@ $(document).ready(function(){
         url: '/questions',
         data: $(this).serialize(),
         success: function(data) {
-          $('.question-template ul').append(
+          $('.question-template ul').prepend(
             "<li class='question' id='question_"+data.id+"'>" +
           "<h2 class="+data.id+">" +
           "<a href='/questions/"+data.id+"/answers'>"+data.title+"</a>" +
