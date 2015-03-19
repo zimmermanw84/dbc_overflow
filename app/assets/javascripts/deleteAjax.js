@@ -21,7 +21,7 @@ $(document).ready(function() {
       deleteUrl = $(this).data('url');
       targetId = $(this).data('id');
       ajaxDeleteCall(deleteUrl);
-      $('#question_'+targetId).hide();
+      $('#question_'+targetId).fadeOut();
     })
   };
 

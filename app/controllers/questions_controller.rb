@@ -33,28 +33,18 @@ class QuestionsController < ApplicationController
   def upvote
     @question = Question.find(params[:id])
     @question.increment!(:vote_total)
-    # redirect_to questions_path
     render :json => @question
   end
 
   def downvote
     @question = Question.find(params[:id])
     @question.decrement!(:vote_total)
-    # redirect_to questions_path
     render :json => @question
   end
 
   def destroy
     @question = Question.find(params[:id])
     @question.destroy
-
-    # respond_to do |format|
-    #   format.html { redirect_to questions_path }
-    #   format.json {
-    #     @question = Question.find(params[:id])
-    #     @question.destroy
-    #    }
-    # end
   end
 
 

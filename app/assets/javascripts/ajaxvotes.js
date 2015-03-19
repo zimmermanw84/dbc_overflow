@@ -6,7 +6,6 @@ $(document).ready(function(){
 (function() {
 
   var routeAddress;
-  var $eventTrigger;
 
   var ajaxVotesCall = function(url, callback) {
     $.ajax({
