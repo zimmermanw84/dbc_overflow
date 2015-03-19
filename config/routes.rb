@@ -14,7 +14,8 @@ Rails.application.routes.draw do
     resources :answers, concerns: [:votable]
   end
 
-
+  get 'widget' => 'widget#index'
+  post 'widget' => 'widget#ajax'
 
   # You can have the root of your site routed with "root"
 
