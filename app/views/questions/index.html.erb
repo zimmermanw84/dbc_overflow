@@ -14,7 +14,7 @@
   <button class='upvote-trigger' data-url='<%= upvote_question_path(question) %>'><%= link_to 'Upvote!', '' %></button>
   <button class='downvote-trigger' data-url='<%= downvote_question_path(question) %>'><%= link_to 'Downvote!', '' %></button>
   <button><%= link_to 'Edit', edit_question_path(question) %></button>
-  <button><%= link_to 'Delete', question_path(question), method: :delete, data: { confirm: "Sure about that?" } %></button>
+  <button class='delete' data-id='<%= question.id  %>' data-url='<%= question_path(question) %>'>Delete</button>
 </h2>
 <% end %>
 </ul>

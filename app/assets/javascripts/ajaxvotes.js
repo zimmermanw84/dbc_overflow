@@ -28,11 +28,9 @@ $(document).ready(function(){
       routeAddress = $(this).data('url');
       ajaxVotesCall(routeAddress, renderNewVoteTotal);
     })
-
   };
 
   var downvoteEvents = function() {
-
     $('.question-template').on('click', '.downvote-trigger', function(event) {
       event.preventDefault();
       routeAddress = $(this).data('url');

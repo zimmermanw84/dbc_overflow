@@ -3,7 +3,7 @@ class QuestionsController < ApplicationController
   def index
     @questions = Question.all
     @question = Question.new
-    @quote = Zen.new.quote
+    # @quote = Zen.new.quote
   end
 
   def show
@@ -48,7 +48,13 @@ class QuestionsController < ApplicationController
     @question = Question.find(params[:id])
     @question.destroy
 
-    redirect_to questions_path
+    # respond_to do |format|
+    #   format.html { redirect_to questions_path }
+    #   format.json {
+    #     @question = Question.find(params[:id])
+    #     @question.destroy
+    #    }
+    # end
   end
 
 
