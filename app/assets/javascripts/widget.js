@@ -3,11 +3,10 @@ var model = new ParserModel();
 var cont = new Controller(model);
 
 // obviously a terrible design issue if iam am passing the object its own callback
-cont.bindEvents(cont.getString)
+cont.bindEvents()
 
 
 });
-
 
 
 var Controller = function(model, view) {
@@ -22,8 +21,6 @@ var ParserModel = function() {
   this.preparsedString = '';
 };
 
-
-
 ParserModel.prototype.recieveString = function() {
   $.ajax({
     type: 'POST',
@@ -36,13 +33,12 @@ ParserModel.prototype.recieveString = function() {
   });
 };
 
-Controller.prototype.bindEvents = function(callback) {
+Controller.prototype.bindEvents = function() {
   $('.widget').on('submit', function(event) {
     event.preventDefault();
-    callback();
+    this.getString();
   })
 };
-
 
 
 // Sudo.. And yea I always spell it that way
