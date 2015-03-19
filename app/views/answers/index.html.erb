@@ -7,7 +7,8 @@
 
 <%= link_to 'Back', questions_path %>
 
-<%= content_tag_for(:li, @answers) do |answer| %>
+
+<%= content_tag_for(:li, @answers[0..-2]) do |answer| %>
 <h2><%= answer.title %>
   | <%= answer.content %>
   | Votes: <%= answer.vote_total %>
@@ -15,4 +16,3 @@
   | <%= link_to 'Downvote!', "/questions/#{@question.id}/answers/#{answer.id}/downvote" %>
 </h2>
 <% end %>
-
