@@ -3,7 +3,7 @@ class QuestionsController < ApplicationController
   def index
     @questions = Question.all
     @question = Question.new
-    # @quote = Zen.new.quote
+    @quote = Zen.new.quote
   end
 
   def show
@@ -45,6 +45,7 @@ class QuestionsController < ApplicationController
   def destroy
     @question = Question.find(params[:id])
     @question.destroy
+    render :index
   end
 
 

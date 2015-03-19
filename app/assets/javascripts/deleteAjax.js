@@ -8,10 +8,16 @@ $(document).ready(function() {
   var deleteUrl;
   var targetId;
 
-  var ajaxDeleteCall = function(url) {
+  var ajaxDeleteCall = function(url, id) {
     $.ajax({
       type: 'delete',
       url: url,
+      success: function() {
+      $('#question_'+id).fadeOut();
+      },
+      error: function() {
+        console.log('Ajax Data Error');
+      },
     });
   };
 
@@ -20,8 +26,7 @@ $(document).ready(function() {
       event.preventDefault();
       deleteUrl = $(this).data('url');
       targetId = $(this).data('id');
-      ajaxDeleteCall(deleteUrl);
-      $('#question_'+targetId).fadeOut();
+      ajaxDeleteCall(deleteUrl, targetId);
     })
   };
 
