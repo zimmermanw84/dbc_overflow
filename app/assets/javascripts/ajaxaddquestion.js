@@ -16,15 +16,15 @@ $(document).ready(function(){
           $('.question-template ul').prepend(
             "<li class='question' id='question_"+data.id+"'>" +
           "<section class="+data.id+">" +
-          "<a href='/questions/"+data.id+"/answers'>"+data.title+"</a>" +
-          " | "+data.content +
-          " | <p class='vote-total'>Votes: 0</p>" +
+          "<a href='/questions/"+data.id+"/answers'><h2>"+data.title+"</a></h2>" +
+          "<p>" + data.content + "<p>" +
+          "<h3 class='vote-total'>Votes: 0</h3>" +
           "<button class='upvote-trigger' data-url='/questions/"+data.id+"/upvote'> " +
           "<a href>Upvote!</a></button> " +
           "<button class='downvote-trigger' data-url='/questions/"+data.id+"/downvote'> " +
           "<a href>Downvote!</a></button> " +
           "<button><a href='/questions/"+data.id+"/edit'>Edit</a></button> " +
-          "<button class='delete' data-id='"+data.id+"' data-url='/questions/"+data.id+"'>Delete" +
+          "<button class='delete' data-id='"+data.id+"' data-url='/questions/"+data.id+"'><a>Delete</a>" +
           "</button>" +
           "</section></li>"
             )

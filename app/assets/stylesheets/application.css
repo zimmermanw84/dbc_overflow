@@ -19,3 +19,11 @@
 li {
   list-style: none;
 }
+
+body {
+  padding-bottom: 5em;
+}
+
+img {
+  float: right;
+}

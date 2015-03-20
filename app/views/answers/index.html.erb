@@ -1,22 +1,25 @@
 <div class="container">
   <div class="jumbotron">
+  <%= image_tag('crab.png') %>
     <h1><%= @question.title %></h1>
   </div>
   <div class="page-header">
-  <h2><%= @question.content %></h2>
-</div>
+    <h2><%= @question.content %></h2>
+  </div>
   <h2>Add Answer</h2>
   <%= render 'form' %>
 
-  <%= link_to 'Back', questions_path %>
+  <button><%= link_to 'Back', questions_path %></button>
 
-
-  <%= content_tag_for(:li, @answers[0..-2]) do |answer| %>
-  <h2><%= answer.title %>
-    | <%= answer.content %>
-    | Votes: <%= answer.vote_total %>
-    | <%= link_to 'Upvote!', "/questions/#{@question.id}/answers/#{answer.id}/upvote" %>
-    | <%= link_to 'Downvote!', "/questions/#{@question.id}/answers/#{answer.id}/downvote" %>
-  </h2>
-  <% end %>
+  <ul>
+    <%= content_tag_for(:li, @answers[0..-2]) do |answer| %>
+    <section>
+      <h2><%= answer.title %></h2>
+      <p><%= answer.content %></p>
+      <h3>Votes: <%= answer.vote_total %></h3>
+      <button><%= link_to 'Upvote!', "/questions/#{@question.id}/answers/#{answer.id}/upvote" %></button>
+      <button><%= link_to 'Downvote!', "/questions/#{@question.id}/answers/#{answer.id}/downvote" %></button>
+    </section>
+    <% end %>
+  </ul>
 </div>
