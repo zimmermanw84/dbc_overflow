@@ -1,21 +1,24 @@
-<h1>DBC Overflow!</h1>
+<div class="container">
+  <div class="jumbotron">
+  <h1>DBC Overflow! <small><%= @quote %></small></h1>
+  </div>
 
-<h3>Moment of zen brought to you by github: <%= @quote %></h3>
-
-<h2>Ask Your Question</h2>
-<%= render 'form' %>
-
-<div class='question-template'>
-<ul>
-<%= content_tag_for(:li, @questions) do |question| %>
-<h2 class='<%= question.id  %>'><%= link_to question.title, question_answers_path(question) %>
-  | <%= question.content %>
-  | <p class='vote-total'>Votes: <%= question.vote_total %></p>
-  <button class='upvote-trigger' data-url='<%= upvote_question_path(question) %>'><%= link_to 'Upvote!', '' %></button>
-  <button class='downvote-trigger' data-url='<%= downvote_question_path(question) %>'><%= link_to 'Downvote!', '' %></button>
-  <button><%= link_to 'Edit', edit_question_path(question) %></button>
-  <button class='delete' data-id='<%= question.id  %>' data-url='<%= question_path(question) %>'>Delete</button>
-</h2>
-<% end %>
-</ul>
+  <h2>Ask Your Question</h2>
+  <div class="input-group">
+    <%= render 'form' %>
+  </div>
+  <div class='question-template'>
+    <ul>
+      <%= content_tag_for(:li, @questions) do |question| %>
+      <h2 class='<%= question.id  %>'><%= link_to question.title, question_answers_path(question) %>
+        | <%= question.content %>
+        | <p class='vote-total'>Votes: <%= question.vote_total %></p>
+        <button class='upvote-trigger' data-url='<%= upvote_question_path(question) %>'><%= link_to 'Upvote!', '' %></button>
+        <button class='downvote-trigger' data-url='<%= downvote_question_path(question) %>'><%= link_to 'Downvote!', '' %></button>
+        <button><%= link_to 'Edit', edit_question_path(question) %></button>
+        <button class='delete' data-id='<%= question.id  %>' data-url='<%= question_path(question) %>'>Delete</button>
+      </h2>
+      <% end %>
+    </ul>
+  </div>
 </div>

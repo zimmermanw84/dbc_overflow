@@ -1,4 +1,4 @@
-<%= form_for @question do |f| %>
+<%= form_for @question, html: { role: "form" } do |f| %>
 
   <% if @question.errors.any? %>
     <div id="error_explanation">
@@ -15,13 +15,17 @@
   <% end %>
 
   <p>
+    <div class="form-group">
     <%= f.label :title %><br>
     <%= f.text_field :title %>
+    </div>
   </p>
 
   <p>
+    <div class="form-group">
     <%= f.label :content %><br>
     <%= f.text_area :content %>
+  </div>
   </p>
 
   <p>

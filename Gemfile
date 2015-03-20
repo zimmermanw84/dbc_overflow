@@ -25,6 +25,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'dotenv-rails', :require => 'dotenv/rails-now'
 
+
 gem 'httparty'
 
 # Use ActiveModel has_secure_password

@@ -1,18 +1,22 @@
-<h1><%= @question.title %></h1>
+<div class="container">
+  <div class="jumbotron">
+    <h1><%= @question.title %></h1>
+  </div>
+  <div class="page-header">
+  <h2><%= @question.content %></h2>
+</div>
+  <h2>Add Answer</h2>
+  <%= render 'form' %>
 
-<h2><%= @question.content %></h2>
-
-<h2>Add Answer</h2>
-<%= render 'form' %>
-
-<%= link_to 'Back', questions_path %>
+  <%= link_to 'Back', questions_path %>
 
 
-<%= content_tag_for(:li, @answers[0..-2]) do |answer| %>
-<h2><%= answer.title %>
-  | <%= answer.content %>
-  | Votes: <%= answer.vote_total %>
-  | <%= link_to 'Upvote!', "/questions/#{@question.id}/answers/#{answer.id}/upvote" %>
-  | <%= link_to 'Downvote!', "/questions/#{@question.id}/answers/#{answer.id}/downvote" %>
-</h2>
-<% end %>
+  <%= content_tag_for(:li, @answers[0..-2]) do |answer| %>
+  <h2><%= answer.title %>
+    | <%= answer.content %>
+    | Votes: <%= answer.vote_total %>
+    | <%= link_to 'Upvote!', "/questions/#{@question.id}/answers/#{answer.id}/upvote" %>
+    | <%= link_to 'Downvote!', "/questions/#{@question.id}/answers/#{answer.id}/downvote" %>
+  </h2>
+  <% end %>
+</div>
