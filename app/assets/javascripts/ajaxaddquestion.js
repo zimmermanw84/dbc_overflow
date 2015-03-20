@@ -15,7 +15,7 @@ $(document).ready(function(){
         success: function(data) {
           $('.question-template ul').prepend(
             "<li class='question' id='question_"+data.id+"'>" +
-          "<h2 class="+data.id+">" +
+          "<section class="+data.id+">" +
           "<a href='/questions/"+data.id+"/answers'>"+data.title+"</a>" +
           " | "+data.content +
           " | <p class='vote-total'>Votes: 0</p>" +
@@ -26,7 +26,7 @@ $(document).ready(function(){
           "<button><a href='/questions/"+data.id+"/edit'>Edit</a></button> " +
           "<button class='delete' data-id='"+data.id+"' data-url='/questions/"+data.id+"'>Delete" +
           "</button>" +
-          "</h2></li>"
+          "</section></li>"
             )
           $('#question_title').val('');
           $('textarea').val('');

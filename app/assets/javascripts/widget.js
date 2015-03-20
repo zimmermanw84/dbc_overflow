@@ -4,7 +4,7 @@ var cont = new Controller(model);
 
 // obviously a terrible design issue if iam am passing the object its own callback
 cont.bindEvents()
-
+// Will come back to finish
 
 });
 

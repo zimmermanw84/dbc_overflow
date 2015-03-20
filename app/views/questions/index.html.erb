@@ -10,15 +10,16 @@
   <div class='question-template'>
     <ul>
       <%= content_tag_for(:li, @questions) do |question| %>
-      <h2 class='<%= question.id  %>'><%= link_to question.title, question_answers_path(question) %>
-        | <%= question.content %>
-        | <p class='vote-total'>Votes: <%= question.vote_total %></p>
+      <section class='<%= question.id  %>'>
+        <h2><%= link_to question.title, question_answers_path(question) %></h2>
+          <p><%= question.content %></p>
+        <h3 class='vote-total'>Votes: <%= question.vote_total %></h3>
         <button class='upvote-trigger' data-url='<%= upvote_question_path(question) %>'><%= link_to 'Upvote!', '' %></button>
         <button class='downvote-trigger' data-url='<%= downvote_question_path(question) %>'><%= link_to 'Downvote!', '' %></button>
         <button><%= link_to 'Edit', edit_question_path(question) %></button>
         <button class='delete' data-id='<%= question.id  %>' data-url='<%= question_path(question) %>'>Delete</button>
-      </h2>
       <% end %>
+      </section>
     </ul>
   </div>
 </div>
