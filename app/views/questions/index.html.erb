@@ -1,25 +1,27 @@
 <div class="container">
   <div class="jumbotron">
-  <%= image_tag('crab.png') %>
-  <h1>DBC Overflow! <br><small><%= @quote %></small></h1>
+    <h1>DBC Overflow! <br><small><%= @quote %></small></h1>
   </div>
 
+  <%= image_tag('crab.png', class: 'media-object') %>
+
+
   <h2>Ask Your Question</h2>
-  <div class="input-group">
-    <%= render 'form' %>
-  </div>
+
+  <%= render 'form' %>
+
   <div class='question-template'>
     <ul>
       <%= content_tag_for(:li, @questions) do |question| %>
       <section class='<%= question.id  %>'>
         <h2><%= link_to question.title, question_answers_path(question) %></h2>
-          <p><%= question.content %></p>
+        <p><%= question.content %></p>
         <h3 class='vote-total'>Votes: <%= question.vote_total %></h3>
         <button class='upvote-trigger' data-url='<%= upvote_question_path(question) %>'><%= link_to 'Upvote!', '' %></button>
         <button class='downvote-trigger' data-url='<%= downvote_question_path(question) %>'><%= link_to 'Downvote!', '' %></button>
         <button><%= link_to 'Edit', edit_question_path(question) %></button>
         <button class='delete' data-id='<%= question.id  %>' data-url='<%= question_path(question) %>'><a>Delete</a></button>
-      <% end %>
+        <% end %>
       </section>
     </ul>
   </div>

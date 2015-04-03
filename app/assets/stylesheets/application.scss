@@ -21,6 +21,16 @@ body {
   padding-bottom: 5em;
 }
 
+img {
+  float: right;
+}
+
+textarea {
+  width: 50em;
+  height: 15em;
+}
+
+
 
 @import "bootstrap-sprockets";
 @import "bootstrap";

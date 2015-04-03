@@ -1,11 +1,11 @@
 <div class="container">
   <div class="jumbotron">
-  <%= image_tag('crab.png') %>
     <h1><%= @question.title %></h1>
   </div>
   <div class="page-header">
     <h2><%= @question.content %></h2>
   </div>
+  <%= image_tag('crab.png') %>
   <h2>Add Answer</h2>
   <%= render 'form' %>
 
